@@ -12,9 +12,7 @@ class Link extends Component {
       .post("/auth/public_token", {
         public_token: public_token
       })
-      .then(res => {
-        // console.log("POST");
-      });
+      .then(res => {});
   }
 
   handleOnExit() {
