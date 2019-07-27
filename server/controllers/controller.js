@@ -1,15 +1,6 @@
 var plaid = require("plaid");
 var moment = require("moment");
 
-// let notes = [];
-// // CREATE (NOTES)
-// const addToNotes = (req, res) => {
-//   req.body.id = notes.length + 1;
-//   notes.push(req.body);
-//   res.status(200).json(notes);
-//   console.log("Note successfully added");
-// };
-
 var PLAID_CLIENT_ID = "5d2a9d234fa1190016b496cc";
 var PLAID_SECRET = "87b88013af4dd20bb29b8b85b4ed74";
 var PLAID_PUBLIC_KEY = "3e832d013aeb2b5d3fce9f8a9f1c64";
@@ -53,6 +44,32 @@ const receivePublicToken = (req, res) => {
   });
 };
 
+const getTransactions = (req, res) => {
+  console.log("starting to get transactions");
+  // Pull transactions for the Item for the last 30 days
+  let startDate = moment()
+    .subtract(30, "days")
+    .format("YYYY-MM-DD");
+  let endDate = moment().format("YYYY-MM-DD");
+  console.log("made it past variables");
+  client.getTransactions(
+    ACCESS_TOKEN,
+    startDate,
+    endDate,
+    {
+      count: 250,
+      offset: 0
+    },
+    function(error, transactionsResponse) {
+      // prettyPrintResponse(transactionsResponse);
+      res.json({ transactions: transactionsResponse });
+      console.log("WOHA!!!");
+      console.log(transactionsResponse);
+    }
+  );
+};
+
 module.exports = {
-  receivePublicToken
+  receivePublicToken,
+  getTransactions
 };
