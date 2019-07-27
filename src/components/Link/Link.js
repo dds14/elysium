@@ -10,7 +10,10 @@ class Link extends Component {
 
     this.state = {
       transactions: [],
-      getTransactionsButton: 1
+      getTransactionsButton: 1,
+      price: null,
+      date: null,
+      merchant: null
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -36,11 +39,14 @@ class Link extends Component {
     axios.get("/transactions").then(res => {
       this.setState({ transactions: res.data });
     });
-    console.log("res.data");
-    console.log(res.data);
   }
 
   handleShowTransactions() {
+    this.setState({
+      price: this.state.transactions.transactions.transactions[15].amount,
+      date: this.state.transactions.transactions.transactions[15].date,
+      merchant: this.state.transactions.transactions.transactions[15].name
+    });
     console.log("show transactions");
     console.log(this.state.transactions);
   }
@@ -68,6 +74,12 @@ class Link extends Component {
           <button onClick={this.handleShowTransactions}>
             Show me my transactions
           </button>
+          <h4>Amount Spent:</h4>
+          <h4>{"$" + this.state.price}</h4>
+          <h4>Date of purchase:</h4>
+          <h4>{this.state.date}</h4>
+          <h4>Merchant:</h4>
+          <h4>{this.state.merchant}</h4>
         </div>
       </div>
     );
