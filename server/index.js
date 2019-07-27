@@ -7,7 +7,7 @@ app.use(express.json()); // this is middleware
 
 const PORT = 4050;
 
-app.post("/api/notes", addToNotes);
+// app.post("/api/notes", addToNotes);
 
 app.post("/auth/public_token", receivePublicToken);
 

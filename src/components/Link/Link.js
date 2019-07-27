@@ -8,15 +8,14 @@ class Link extends Component {
     // send token to client server
     // console.log("Link worked on front end, token logged below");
     console.log(public_token);
-    axios
-      .post("/auth/public_token", {
-        public_token: public_token
-      })
-      .then(res => {});
+    axios.post("/auth/public_token", {
+      public_token: public_token
+    });
   }
 
   handleOnExit() {
     // handle the case when your user exits Link
+    console.log("don't leave!");
   }
 
   render() {
