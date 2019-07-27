@@ -4,25 +4,23 @@ import axios from "axios";
 import "../../App.css";
 
 class Link extends Component {
-  handleOnSuccess(token, metadata) {
+  handleOnSuccess(public_token, metadata) {
     // send token to client server
-    console.log("link hit on front end, token logged below");
-    console.log(token);
-    axios.get("/").then(res => {
-      console.log("GET");
-    });
+    // console.log("Link worked on front end, token logged below");
+    console.log(public_token);
     axios
       .post("/auth/public_token", {
-        token: token
+        public_token: public_token
       })
       .then(res => {
-        console.log("POST");
+        // console.log("POST");
       });
   }
 
   handleOnExit() {
     // handle the case when your user exits Link
   }
+
   render() {
     return (
       <PlaidLink
