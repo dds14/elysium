@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PlaidLink from "react-plaid-link";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
 import "../../App.css";
 
@@ -8,10 +9,12 @@ class Link extends Component {
     super();
 
     this.state = {
-      derek: true
+      transactions: [],
+      getTransactionsButton: 1
     };
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleShowTransactions = this.handleShowTransactions.bind(this);
   }
 
   handleOnSuccess(public_token, metadata) {
@@ -28,14 +31,25 @@ class Link extends Component {
     console.log("don't leave!");
   }
 
-  handleClick() {
+  handleClick(res) {
     console.log("button clicked");
-    axios.get("/transactions").then(function(res) {
-      console.log("transactions");
+    axios.get("/transactions").then(res => {
+      this.setState({ transactions: res.data });
     });
+    console.log("res.data");
+    console.log(res.data);
+  }
+
+  handleShowTransactions() {
+    console.log("show transactions");
+    console.log(this.state.transactions);
   }
 
   render() {
+    // DEREK - this redirects to a different page after the button is clicked
+    // if (this.state.getTransactionsButton === 2) {
+    //   return <Redirect to="/transactions" />;
+    // }
     return (
       <div>
         <PlaidLink
@@ -51,6 +65,9 @@ class Link extends Component {
         </PlaidLink>
         <div>
           <button onClick={this.handleClick}>Get Transactions</button>
+          <button onClick={this.handleShowTransactions}>
+            Show me my transactions
+          </button>
         </div>
       </div>
     );
