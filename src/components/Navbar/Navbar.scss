@@ -1,0 +1,202 @@
+@import "../../variables.scss";
+
+// nav only
+$nav-background: white;
+
+// HAMBURGER
+
+.hamburger {
+  // border: 1px solid plum;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 25px;
+  width: 100%;
+}
+
+@media (min-width: 1200px) {
+  .hamburger {
+    display: none;
+  }
+}
+
+.navbar {
+  //   border: $border-test-red;
+  margin-bottom: 25px;
+  background-color: $nav-background;
+  width: 100%;
+  height: 12vh;
+  display: flex;
+  align-items: center;
+  box-shadow: 1px 4px 5px #efefef;
+}
+
+.nav-right-side {
+  // border: $border-test-blue;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.nav-left-side {
+  // border: $border-test-green;
+  align-items: center;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  // justify-content: flex-end;
+}
+
+@media (max-width: 1200px) {
+  .nav-right-side {
+    display: none;
+  }
+  .nav-left-side {
+    display: none;
+  }
+  .hammy-logo {
+    height: 10vh;
+    min-width: 22vw;
+    position: absolute;
+    left: 1.5%;
+    top: 1.5%;
+  }
+}
+
+.nav-brands {
+  // border: $border-test-blue;
+  display: flex;
+  width: 20%;
+  justify-content: center;
+  // margin-right: 50px;
+  font-family: "Quicksand", sans-serif;
+  font-size: $nav-font-size;
+}
+
+.nav-brands:hover {
+  opacity: $text-hover;
+}
+
+.nav-influencer {
+  // border: $border-test-blue;
+  width: 30%;
+  display: flex;
+  justify-content: flex-start;
+  margin-right: 50px;
+  font-family: "Quicksand", sans-serif;
+  font-size: $nav-font-size;
+}
+
+.nav-learn {
+  margin-left: 7%;
+}
+
+.nav-influencer:hover {
+  opacity: $text-hover;
+}
+
+.nav-login {
+  //   border: $border-test-blue;
+  display: flex;
+  width: 75%;
+  justify-content: flex-end;
+  margin-right: 50px;
+  font-family: "Quicksand", sans-serif;
+  font-size: $nav-font-size;
+  text-decoration: none;
+}
+
+.nav-login:hover {
+  opacity: $text-hover;
+}
+
+.nav-login:focus {
+  outline: none;
+}
+
+.nav-sign-up {
+  //   border: $border-test-blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 130px;
+  width: 45%;
+  border-radius: 45px;
+  background-color: $accent;
+  color: black;
+  font-size: 17px;
+  margin-top: 30px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-right: 10px;
+  padding-left: 15px;
+  font-family: "Quicksand", sans-serif;
+  letter-spacing: 2px;
+  margin-bottom: 28px;
+  opacity: 1;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.nav-sign-up:hover {
+  //   background-color: #afeeee;
+  opacity: 0.5;
+  color: black;
+}
+
+.nav-sign-up:focus {
+  outline: none;
+}
+
+.sign-up-span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-logo {
+  display: flex;
+  flex-direction: row;
+  margin-left: 30px;
+  width: 90px;
+  height: 90px;
+}
+
+.nav-profile {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 50px;
+  font-family: "Quicksand", sans-serif;
+  font-size: $nav-font-size;
+  text-decoration: none;
+  position: absolute;
+  right: 14%;
+}
+
+.nav-profile:hover {
+  opacity: $text-hover;
+}
+
+.nav-profile:focus {
+  outline: none;
+}
+
+.nav-logout {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 50px;
+  font-family: "Quicksand", sans-serif;
+  font-size: $nav-font-size;
+  text-decoration: none;
+  position: absolute;
+  right: 5%;
+}
+
+.nav-logout:hover {
+  opacity: $text-hover;
+}
+
+.nav-logout:focus {
+  outline: none;
+}

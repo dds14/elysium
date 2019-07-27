@@ -9,40 +9,35 @@ class Navbar extends Component {
       loggedIn: true,
       id: null
     };
-    this.logout = this.logout.bind(this);
+    // this.logout = this.logout.bind(this);
   }
 
-  componentDidMount() {
-    axios.get("/api/users").then(res => {
-      this.setState({
-        id: res.data.userId
-      });
-    });
-  }
+  //   componentDidMount() {
+  //     axios.get("/api/users").then(res => {
+  //       this.setState({
+  //         id: res.data.userId
+  //       });
+  //     });
+  //   }
 
-  logout() {
-    // console.log(this.props);
-    this.props.logout().then(res => {
-      this.setState({
-        id: null
-      });
-    });
-  }
+  //   logout() {
+  //     // console.log(this.props);
+  //     this.props.logout().then(res => {
+  //       this.setState({
+  //         id: null
+  //       });
+  //     });
+  //   }
 
   render() {
     if (this.state.id === null) {
       return (
         // LOGGED OUT NAVBAR
         <div className="navbar">
-          <div className="hamburger">
-            <img src={logo} className="hammy-logo" alt="logo" />
-            <img src={hamburger} className="hammy" alt="hamburger" />
-          </div>
-
           <div className="nav-left-side">
-            <Link to="/">
+            {/* <Link to="/">
               <img src={logo} className="nav-logo" alt="logo" />
-            </Link>
+            </Link> */}
             <Link to="/learn" className="nav-learn">
               <p className="nav-brands">Learn</p>
             </Link>
@@ -65,9 +60,9 @@ class Navbar extends Component {
         // LOGGED IN NAVBAR
         <div className="navbar">
           <div className="nav-left-side">
-            <Link to="/">
+            {/* <Link to="/">
               <img src={logo} className="nav-logo" alt="logo" />
-            </Link>
+            </Link> */}
             <Link to="/learn" className="nav-learn">
               <p className="nav-brands">Learn</p>
             </Link>
@@ -89,3 +84,5 @@ class Navbar extends Component {
     }
   }
 }
+
+export default Navbar;
